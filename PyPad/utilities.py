@@ -9,7 +9,6 @@ def checkModules():
     logger.log("Checking for required modules...")
     try:
         import tkinter
-        import keyboard
     except:
         missing = True
 
