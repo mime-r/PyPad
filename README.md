@@ -17,6 +17,7 @@ A Lightweight Notepad-App made with Python 3.x
 - [Dependencies](#dependencies)
 - [Documentation](#documentation)
   - [Features](#features)
+  - [TODO](#TODO)
 - [Support Me!](#support-me)
 
 ## Credits
@@ -34,6 +35,9 @@ For a looooot of code.
 - Lighter than a feather.
 - Functionable and easy-to-use.
 - Basic notepad functionality.
+
+### TODO
+- Detect python version and stop if version < 3.x
 
 ## Support me!
 - Simply just watch/star this project. I'll feel happieee :)
