@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# Version 1.2
 # Local
 import utilities
 import logger
