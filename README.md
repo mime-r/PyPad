@@ -1,6 +1,6 @@
 <p align="center">
   <br>
-    <img src="PyPad.png" width="150"/>
+    <img src="/PyPad/PyPad.png" width="150"/>
   <br>
 </p>
 
