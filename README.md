@@ -10,6 +10,7 @@
 A Lightweight Notepad-App made with Python 3.x
 
 > Production Ready. Light-as-a-feather.
+> 14kb (PyPad) vs 177kb (Windows Notepad)
 
 ## Content
 - [Credits](#credits)
