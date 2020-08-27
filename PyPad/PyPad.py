@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
-# Version 1.2
+# V2.0X
 # Local
-import utilities
 import logger
 
-# Check modules
-utilities.checkModules()
 
 import tkinter 
 import os     
 from tkinter import *
 from tkinter.messagebox import *
 from tkinter.filedialog import *
-
+import webbrowser
 
 class PyPad: 
   
@@ -78,36 +75,37 @@ class PyPad:
         self.__thisTextArea.grid(sticky = N + E + S + W) 
           
         # To open new file 
-        self.__thisFileMenu.add_command(label="New", 
+        self.__thisFileMenu.add_command(label="New [ctrl+n]", 
                                         command=self.__newFile)     
           
         # To open a already existing file 
-        self.__thisFileMenu.add_command(label="Open", 
+        self.__thisFileMenu.add_command(label="Open [ctrl+o]", 
                                         command=self.__openFile) 
           
         # To save current file 
-        self.__thisFileMenu.add_command(label="Save", 
+        self.__thisFileMenu.add_command(label="Save [ctrl+s]", 
                                         command=self.__saveFile)     
   
         # To create a line in the dialog         
         self.__thisFileMenu.add_separator()                                          
-        self.__thisFileMenu.add_command(label="Exit", 
+        self.__thisFileMenu.add_command(label="Exit [ctrl+d]", 
                                         command=self.__quitApplication) 
         self.__thisMenuBar.add_cascade(label="File", 
                                        menu=self.__thisFileMenu)      
           
         # To give a feature of cut  
-        self.__thisEditMenu.add_command(label="Cut", 
+        self.__thisEditMenu.add_command(label="Cut [ctrl+x]", 
                                         command=self.__cut)              
       
         # to give a feature of copy     
-        self.__thisEditMenu.add_command(label="Copy", 
+        self.__thisEditMenu.add_command(label="Copy [ctrl+c]", 
                                         command=self.__copy)          
           
         # To give a feature of paste 
-        self.__thisEditMenu.add_command(label="Paste", 
+        self.__thisEditMenu.add_command(label="Paste [ctrl+v]", 
                                         command=self.__paste)          
-          
+        self.__thisEditMenu.add_command(label="Search with Google",
+                                        command=self.__search)  
         # To give a feature of editing 
         self.__thisMenuBar.add_cascade(label="Edit", 
                                        menu=self.__thisEditMenu)      
@@ -123,7 +121,7 @@ class PyPad:
         self.__thisScrollBar.pack(side=RIGHT,fill=Y)                     
           
         # Scrollbar will adjust automatically according to the content         
-        self.__thisScrollBar.config(command=self.__thisTextArea.yview)      
+        self.__thisScrollBar.config(command=self.__thisTextArea.yview)
         self.__thisTextArea.config(yscrollcommand=self.__thisScrollBar.set)
 
         # key bindings
@@ -137,9 +135,17 @@ class PyPad:
         
       
           
-    def __quitApplication(self, evt=None): 
-        self.__root.destroy()
-        sys.exit()
+    def __quitApplication(self, evt=None):
+        #if self.__file = None
+        if self.__file == None and not self.__thisTextArea.get(1.0, END).isspace():
+            result = askyesnocancel("PyPad", "Do you want to save changes to Untitled?")
+            if result:
+                self.__saveFile()
+                self.__root.destroy()
+            elif result == False:
+                self.__root.destroy()
+            elif result == None:
+                pass
         # exit() 
   
     def __showAbout(self): 
@@ -159,7 +165,7 @@ class PyPad:
               
             # Try to open the file 
             # set the window title 
-            self.__root.title(os.path.basename(self.__file) + " - Notepad") 
+            self.__root.title(os.path.basename(self.__file) + " - PyPad") 
             self.__thisTextArea.delete(1.0,END) 
   
             file = open(self.__file,"r") 
@@ -211,17 +217,30 @@ class PyPad:
         self.__thisTextArea.event_generate("<<Copy>>") 
   
     def __paste(self, evt=None): 
-        self.__thisTextArea.event_generate("<<Paste>>") 
-  
+        self.__thisTextArea.event_generate("<<Paste>>")
+    
+    def __search(self, evt=None):
+        try:
+            content = self.__thisTextArea.selection_get()
+            webbrowser.open("https://www.google.com/search?q={}".format(content))
+        except:
+            logger.log("Nothing selected!")
+
+
+        
     def run(self): 
   
-        # Run main application 
+        # Run main application
+        self.__root.protocol("WM_DELETE_WINDOW", self.__quitApplication)
         self.__root.mainloop()
         
 
 
 
 if __name__ == "__main__":
+    import platform
+    if int(platform.python_version()[0]) < 3:
+        raise Exception("Please use Python 3 or higher.", "python_version: {}".format(platform.python_version()))
     try:
         # Run main application 
         PyPad = PyPad(width=600,height=400) 
