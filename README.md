@@ -13,10 +13,11 @@ A Lightweight Notepad-App made with Python 3.x
 > 14kb (PyPad) vs 177kb (Windows Notepad)
 
 # WARNING
-This project is not maintained anymore. Please feel free to submit a pull request or two.
+This project is still being maintained. Please feel free to submit a pull request or two.
 
 
 ## Content
+- [WHAT'S NEW?] (#what's-new)
 - [Credits](#credits)
 - [Changelog](https://github.com/mime-r/PyPad/blob/master/PyPad/Changelog.md)
 - [Dependencies](#dependencies)
@@ -25,13 +26,20 @@ This project is not maintained anymore. Please feel free to submit a pull reques
   - [TODO](#TODO)
 - [Support Me!](#support-me)
 
+## WHAT'S NEW?
+- V 1.0 - 1.2 
+ - Many bug fixes, minor improvements and feature enhancement.
+- v 2.0 X
+ - Minor bug fixes, major feature enhancement (Ask to save, etc.) 
+
 ## Credits
 Tkinter & Geeksforgeeks
 For a looooot of code.
   
 ## Dependencies
-- Tkinter
- - Literally just tkinter.
+-Tkinter
+-Webbrowser
+ - For opening web links
 
 ## Documentation
 - Sorry - no documentation yet!
