@@ -26,7 +26,7 @@ This project is still being maintained. Please feel free to submit a pull reques
   - [TODO](#TODO)
 - [Support Me!](#support-me)
 
-## WHATS NEW?
+## WHAT'S NEW?
 - V 1.0 - 1.2 
  - Many bug fixes, minor improvements and feature enhancement.
 - v 2.0 X
