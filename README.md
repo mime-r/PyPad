@@ -17,7 +17,7 @@ This project is still being maintained. Please feel free to submit a pull reques
 
 
 ## Content
-- [WHAT'S NEW?](#what's-new?)
+- [WHAT'S NEW?](#what's-new)
 - [Credits](#credits)
 - [Changelog](https://github.com/mime-r/PyPad/blob/master/PyPad/Changelog.md)
 - [Dependencies](#dependencies)
@@ -26,7 +26,7 @@ This project is still being maintained. Please feel free to submit a pull reques
   - [TODO](#TODO)
 - [Support Me!](#support-me)
 
-## WHAT'S NEW?
+## WHATS NEW?
 - V 1.0 - 1.2 
  - Many bug fixes, minor improvements and feature enhancement.
 - v 2.0 X
